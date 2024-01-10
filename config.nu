@@ -12,9 +12,6 @@ let dark_theme = {
     leading_trailing_space_bg: { attr: n } # no fg, no bg, attr none effectively turns this off
     header: green_bold
     empty: blue
-    # Closures can be used to choose colors for specific values.
-    # The value (in this case, a bool) is piped into the closure.
-    # eg) {|| if $in { 'light_cyan' } else { 'light_gray' } }
     bool: light_cyan
     int: white
     filesize: cyan
@@ -46,7 +43,6 @@ let dark_theme = {
     shape_filepath: cyan
     shape_flag: blue_bold
     shape_float: purple_bold
-    # shapes are used to change the cli syntax highlighting
     shape_garbage: { fg: white bg: red attr: b}
     shape_globpattern: cyan_bold
     shape_int: purple_bold
@@ -221,11 +217,11 @@ $env.config = {
 
     cursor_shape: {
         emacs: line # block, underscore, line, blink_block, blink_underscore, blink_line, inherit to skip setting cursor shape (line is the default)
-        vi_insert: block # block, underscore, line, blink_block, blink_underscore, blink_line, inherit to skip setting cursor shape (block is the default)
+        vi_insert: line # block, underscore, line, blink_block, blink_underscore, blink_line, inherit to skip setting cursor shape (block is the default)
         vi_normal: underscore # block, underscore, line, blink_block, blink_underscore, blink_line, inherit to skip setting cursor shape (underscore is the default)
     }
 
-    color_config: $dark_theme # if you want a more interesting theme, you can replace the empty record with `$dark_theme`, `$light_theme` or another custom record
+    color_config: $light_theme # if you want a more interesting theme, you can replace the empty record with `$dark_theme`, `$light_theme` or another custom record
     use_grid_icons: true
     footer_mode: "25" # always, never, number_of_rows, auto
     float_precision: 2 # the precision for displaying floats in tables
@@ -760,3 +756,5 @@ $env.config = {
         }
     ]
 }
+
+source ($nu.home-path + "/.config/nushell/completions/git-completions.nu")
