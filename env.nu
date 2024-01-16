@@ -98,3 +98,5 @@ $env.NU_PLUGIN_DIRS = [
 ]
 
 $env.PATH = ($env.PATH | split row (char esep) | prepend ($nu.home-path + '/.config/emacs/bin'))
+$env.PATH = ($env.PATH | split row (char esep) | prepend ($nu.home-path + '/Documents/google-cloud/bin'))
+

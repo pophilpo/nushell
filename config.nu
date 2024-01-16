@@ -758,3 +758,4 @@ $env.config = {
 }
 
 source ($nu.home-path + "/.config/nushell/completions/git-completions.nu")
+alias svca = kubectl port-forward -n data-api svc/accounts 5010:80
